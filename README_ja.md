@@ -1,4 +1,11 @@
-English | [中文](README_zh.md) | 日本語
+# OpenManus 日本語版
+
+> **Note**  
+> このリポジトリは[OpenManus](https://github.com/mannaandpoem/OpenManus)の日本語版です。
+> オリジナルのOpenManusの機能はそのままに、プロンプトとドキュメントを日本語化しています。
+> 最新の英語版の機能については、[オリジナルのリポジトリ](https://github.com/mannaandpoem/OpenManus)をご確認ください。
+
+[English](https://github.com/mannaandpoem/OpenManus) | [中文](https://github.com/mannaandpoem/OpenManus/blob/main/README_zh.md) | 日本語
 
 [![GitHub stars](https://img.shields.io/github/stars/mannaandpoem/OpenManus?style=social)](https://github.com/mannaandpoem/OpenManus/stargazers)
 &ensp;
