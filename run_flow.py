@@ -14,9 +14,9 @@ async def run_flow():
 
     while True:
         try:
-            prompt = input("Enter your prompt (or 'exit' to quit): ")
+            prompt = input("プロンプトを入力してください（終了するには 'exit'）: ")
             if prompt.lower() == "exit":
-                logger.info("Goodbye!")
+                logger.info("さようなら！")
                 break
 
             flow = FlowFactory.create_flow(
@@ -24,29 +24,29 @@ async def run_flow():
                 agents=agents,
             )
             if prompt.strip().isspace():
-                logger.warning("Skipping empty prompt.")
+                logger.warning("空のプロンプトはスキップします。")
                 continue
-            logger.warning("Processing your request...")
+            logger.warning("リクエストを処理中...")
 
             try:
                 start_time = time.time()
                 result = await asyncio.wait_for(
                     flow.execute(prompt),
-                    timeout=3600,  # 60 minute timeout for the entire execution
+                    timeout=3600,  # 60分のタイムアウト（実行全体）
                 )
                 elapsed_time = time.time() - start_time
-                logger.info(f"Request processed in {elapsed_time:.2f} seconds")
+                logger.info(f"リクエストは {elapsed_time:.2f} 秒で処理されました")
                 logger.info(result)
             except asyncio.TimeoutError:
-                logger.error("Request processing timed out after 1 hour")
+                logger.error("リクエスト処理が1時間後にタイムアウトしました")
                 logger.info(
-                    "Operation terminated due to timeout. Please try a simpler request."
+                    "タイムアウトにより操作が終了しました。より簡単なリクエストを試してください。"
                 )
 
         except KeyboardInterrupt:
-            logger.info("Operation cancelled by user.")
+            logger.info("ユーザーによって操作がキャンセルされました。")
         except Exception as e:
-            logger.error(f"Error: {str(e)}")
+            logger.error(f"エラー: {str(e)}")
 
 
 if __name__ == "__main__":
